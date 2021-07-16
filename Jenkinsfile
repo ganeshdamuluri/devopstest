@@ -29,5 +29,4 @@ pipeline {
       echo 'delete and cleanup after Build'
       cleanWs()
     }
-  }
 }
