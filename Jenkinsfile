@@ -1,5 +1,6 @@
 /* groovylint-disable CompileStatic, DuplicateStringLiteral, NoDef */
 pipeline {
+  agent any
     stage('Test') {
       steps {
         echo 'Unit tests'
@@ -27,6 +28,6 @@ pipeline {
   post {
     always {
       echo 'delete and cleanup after Build'
-      cleanWs()
+      //cleanWs()
     }
 }
