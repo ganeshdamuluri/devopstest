@@ -1,6 +1,7 @@
 /* groovylint-disable CompileStatic, DuplicateStringLiteral, NoDef */
 pipeline {
   agent any
+   stages {
     stage('Test') {
       steps {
         echo 'Unit tests'
@@ -11,9 +12,8 @@ pipeline {
         echo 'Metadata'
         script {
           def enReleaseNotes = input message: 'User input required',
-            submitter: 'authenticated',
-            parameters: [[$class: 'TextParameterDefinition', defaultValue: 'New Release with Fixes And Enhancements', description: 'Paste the English release notes', name: 'English']]
-        }
+            submitter: 'authenticated'
+		}
       }
     }
     stage('Build') {
@@ -21,7 +21,6 @@ pipeline {
         echo 'Build'
 		sh 'node -v'
 		sh 'npm -v'
-		echo $JAVA_HOME
       }
     }
   }
