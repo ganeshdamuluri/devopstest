@@ -17,6 +17,7 @@ pipeline {
       }
     }
     stage('Build') {
+	tools { nodejs 'node10' }
       steps {
         echo 'Build'
 		sh 'node -v'
